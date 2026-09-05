@@ -45,16 +45,31 @@ Cards con resumen de estados (Equipos bien, mal, pendientes).
 #### [NEW] Inventario de Equipos
 Lista con buscador y filtros.
 
-#### [NEW] Registro de Equipos
-Formulario con cámara y subida a Supabase Storage.
+### Fase 4: Registro de Equipos Real (Mockup 4)
 
-### Fase 4: Verificación y Estadísticas
+#### [MODIFY] [supabase_service.dart](file:///E:/APP-EQUIPOS/lib/services/supabase_service.dart)
+- Añadir método `uploadEquipoImage` para subir archivos al bucket `equipos_fotos`.
+- Añadir método `registrarEquipo` para insertar el registro en la tabla `equipos`.
+
+#### [MODIFY] [registrar_equipo_screen.dart](file:///E:/APP-EQUIPOS/lib/screens/equipos/registrar_equipo_screen.dart)
+- Integrar `image_picker` para capturar fotos con la cámara o galería.
+- Añadir `TextEditingController` para capturar: Nombre, Código, Especificaciones y Observaciones.
+- Implementar validaciones básicas (campos obligatorios).
+- Mostrar indicador de carga (`CircularProgressIndicator`) durante el guardado.
+
+### Fase 5: Flujo de Verificación (Mockups 6 y 7)
 
 #### [NEW] Pantalla de Verificación
-Flujo para cambiar estados de los equipos.
+- [NEW] [verificar_equipos_screen.dart](file:///E:/APP-EQUIPOS/lib/screens/verificar/verificar_equipos_screen.dart): Lista con pestañas "Pendientes" y "Verificados".
+- [NEW] [verificar_form_screen.dart](file:///E:/APP-EQUIPOS/lib/screens/verificar/verificar_form_screen.dart): Formulario para actualizar estado (Bien/Mal).
+
+### Fase 5: Detalle y Estadísticas (Mockups 8 y 9)
+
+#### [NEW] Detalle del Equipo
+- [NEW] [detalle_equipo_screen.dart](file:///E:/APP-EQUIPOS/lib/screens/equipos/detalle_equipo_screen.dart): Vista completa con foto y especificaciones.
 
 #### [NEW] Pantalla de Estadísticas
-Gráfico de pastel y desglose por categorías.
+- [NEW] [estadisticas_screen.dart](file:///E:/APP-EQUIPOS/lib/screens/estadisticas/estadisticas_screen.dart): Gráfico de pastel y desglose por categorías.
 
 ## Verification Plan
 

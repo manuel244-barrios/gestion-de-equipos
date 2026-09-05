@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../models/equipo.dart';
 
@@ -45,5 +46,25 @@ class SupabaseService {
   Future<List<Equipo>> getEquipos() async {
     final response = await client.from('equipos').select().order('created_at', ascending: false);
     return (response as List).map((json) => Equipo.fromJson(json)).toList();
+  }
+
+  Future<String?> uploadEquipoImage(File imageFile, String fileName) async {
+    try {
+      final String path = await client.storage.from('equipos_fotos').upload(
+            fileName,
+            imageFile,
+            fileOptions: const FileOptions(cacheControl: '3600', upsert: false),
+          );
+      
+      // Obtener la URL pública
+      return client.storage.from('equipos_fotos').getPublicUrl(fileName);
+    } catch (e) {
+      print('Error al subir imagen: $e');
+      return null;
+    }
+  }
+
+  Future<void> registrarEquipo(Equipo equipo) async {
+    await client.from('equipos').insert(equipo.toJson());
   }
 }

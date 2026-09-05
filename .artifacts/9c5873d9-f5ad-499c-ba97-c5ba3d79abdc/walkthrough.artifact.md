@@ -18,10 +18,12 @@ Hoy logramos transformar el proyecto de una carpeta vacía a una aplicación fun
 - **Registro de Usuario**: Para crear nuevos accesos.
 - **Dashboard (Inicio)**: Resumen en tiempo real de cuántos equipos están bien, mal o pendientes.
 - **Inventario**: Lista completa de los equipos registrados.
-- **Formulario de Registro**: Interfaz lista para agregar nuevos equipos.
+- **Formulario de Registro Real**:
+    - Ya permite tomar fotos con la cámara.
+    - Sube las fotos automáticamente al Bucket `equipos_fotos` de Supabase.
+    - Guarda toda la información técnica en la base de datos.
 
 ## Próximos pasos recomendados:
-- [ ] Implementar la **subida de imágenes** a Supabase Storage.
 - [ ] Crear la pantalla de **Verificación** para cambiar el estado de los equipos.
 - [ ] Generar los **gráficos de estadísticas**.
 
