@@ -22,9 +22,16 @@ Hoy logramos transformar el proyecto de una carpeta vacía a una aplicación fun
     - Ya permite tomar fotos con la cámara.
     - Sube las fotos automáticamente al Bucket `equipos_fotos` de Supabase.
     - Guarda toda la información técnica en la base de datos.
+- **Flujo de Verificación (NUEVO)**:
+    - Pestañas para equipos "Pendientes" y "Verificados".
+    - Formulario de revisión individual con cambio de estado (Bien/Mal).
+    - Actualización en tiempo real de las estadísticas del Dashboard.
+- **Detalle del Equipo (NUEVO)**:
+    - Vista estética con foto en grande.
+    - Desglose completo de especificaciones y observaciones.
+    - Estado visual del equipo y fecha exacta de registro.
 
 ## Próximos pasos recomendados:
-- [ ] Crear la pantalla de **Verificación** para cambiar el estado de los equipos.
-- [ ] Generar los **gráficos de estadísticas**.
+- [ ] Generar los **gráficos de estadísticas** (Mockup 9).
 
 ¡Excelente trabajo hoy! La base de la aplicación ya es muy sólida.

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../models/equipo.dart';
 import '../../services/supabase_service.dart';
 import 'registrar_equipo_screen.dart';
+import 'detalle_equipo_screen.dart';
 
 class EquiposListScreen extends StatefulWidget {
   const EquiposListScreen({super.key});
@@ -87,6 +88,14 @@ class _EquiposListScreenState extends State<EquiposListScreen> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: ListTile(
         contentPadding: const EdgeInsets.all(12),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DetalleEquipoScreen(equipo: equipo),
+            ),
+          );
+        },
         leading: Container(
           width: 60,
           height: 60,

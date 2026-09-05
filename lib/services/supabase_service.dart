@@ -67,4 +67,32 @@ class SupabaseService {
   Future<void> registrarEquipo(Equipo equipo) async {
     await client.from('equipos').insert(equipo.toJson());
   }
+
+  // Verification methods
+  Future<List<Map<String, dynamic>>> getEquiposConVerificacion() async {
+    // Obtenemos equipos y sus verificaciones
+    final response = await client
+        .from('equipos')
+        .select('*, verificaciones(estado_verif, fecha_verificacion)')
+        .order('created_at', ascending: false);
+    
+    return response as List<Map<String, dynamic>>;
+  }
+
+  Future<void> realizarVerificacion({
+    required String equipoId,
+    required String nuevoEstado,
+    required String observaciones,
+  }) async {
+    // 1. Actualizar el estado en la tabla 'equipos'
+    await client.from('equipos').update({'estado': nuevoEstado}).eq('id', equipoId);
+
+    // 2. Insertar el registro en la tabla 'verificaciones'
+    await client.from('verificaciones').insert({
+      'equipo_id': equipoId,
+      'estado_verif': 'Verificado',
+      'observaciones_verif': observaciones,
+      'fecha_verificacion': DateTime.now().toIso8601String(),
+    });
+  }
 }

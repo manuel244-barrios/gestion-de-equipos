@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../services/supabase_service.dart';
 import 'equipos/registrar_equipo_screen.dart';
+import 'verificar/verificar_equipos_screen.dart';
+import 'main_container.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -149,18 +151,39 @@ class _HomeScreenState extends State<HomeScreen> {
     return Column(
       children: [
         InkWell(
-          onTap: () {
-            Navigator.push(
+          onTap: () async {
+            final result = await Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const RegistrarEquipoScreen()),
             );
+            if (result == true) _fetchStats();
           },
           child: _buildActionButton('Registrar nuevo equipo', Icons.add_circle, const Color(0xFF673AB7)),
         ),
         const SizedBox(height: 12),
-        _buildActionButton('Verificar equipos', Icons.check_circle, Colors.green),
+        InkWell(
+          onTap: () async {
+            await Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const VerificarEquiposScreen()),
+            );
+            _fetchStats();
+          },
+          child: _buildActionButton('Verificar equipos', Icons.check_circle, Colors.green),
+        ),
         const SizedBox(height: 12),
-        _buildActionButton('Ver equipos', Icons.list, Colors.blue),
+        InkWell(
+          onTap: () {
+            // Navegar a la pestaña de equipos en el MainContainer
+            // Para simplicidad, podemos navegar a la pantalla directamente o usar el Tab del MainContainer
+            // Aquí navegaremos a la pantalla de equipos
+             Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const MainContainer()),
+            );
+          },
+          child: _buildActionButton('Ver equipos', Icons.list, Colors.blue),
+        ),
       ],
     );
   }

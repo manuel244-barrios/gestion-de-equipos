@@ -31,11 +31,12 @@
 - [ ] Probar registro completo con foto
 
 ## Fase 5: Flujo de Verificación (Mockups 6 y 7)
-- [ ] UI: `VerificarEquiposScreen` con Tabs (Pendientes/Verificados)
-- [ ] UI: `VerificarFormScreen` (Radio buttons + Notas)
-- [ ] Lógica: Actualizar estado del equipo en Supabase
+- [x] UI: `VerificarEquiposScreen` con Tabs (Mockup 6)
+- [x] UI: `VerificarFormScreen` (Mockup 7)
+- [x] Implementar `getEquiposConVerificacion` en `SupabaseService`
+- [x] Implementar `realizarVerificacion` en `SupabaseService`
+- [x] Conectar flujo de navegación entre pantallas
 
 ## Fase 6: Detalle y Estadísticas (Mockups 8 y 9)
-- [ ] UI: `DetalleEquipoScreen` (Vista completa)
-- [ ] UI: `EstadisticasScreen` (Gráfico de Pastel con `fl_chart`)
-- [ ] Pulido final y validaciones
+- [x] UI: `DetalleEquipoScreen` (Mockup 8)
+- [ ] UI: `EstadisticasScreen` con `fl_chart` (Mockup 9)

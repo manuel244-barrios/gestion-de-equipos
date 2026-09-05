@@ -59,11 +59,22 @@ Lista con buscador y filtros.
 
 ### Fase 5: Flujo de Verificación (Mockups 6 y 7)
 
-#### [NEW] Pantalla de Verificación
-- [NEW] [verificar_equipos_screen.dart](file:///E:/APP-EQUIPOS/lib/screens/verificar/verificar_equipos_screen.dart): Lista con pestañas "Pendientes" y "Verificados".
-- [NEW] [verificar_form_screen.dart](file:///E:/APP-EQUIPOS/lib/screens/verificar/verificar_form_screen.dart): Formulario para actualizar estado (Bien/Mal).
+#### [NEW] [verificar_equipos_screen.dart](file:///E:/APP-EQUIPOS/lib/screens/verificar/verificar_equipos_screen.dart)
+- Implementar `DefaultTabController` para las pestañas "Pendientes" y "Verificados".
+- Lista de equipos con el diseño de tarjeta del mockup 6.
+- Card de "Consejo" informativa en la parte inferior.
 
-### Fase 5: Detalle y Estadísticas (Mockups 8 y 9)
+#### [NEW] [verificar_form_screen.dart](file:///E:/APP-EQUIPOS/lib/screens/verificar/verificar_form_screen.dart)
+- Pantalla de revisión individual (Mockup 7).
+- Selección de estado (Bien/Mal) con Radio Buttons.
+- Campo de texto para observaciones de la revisión.
+- Botón "Actualizar estado" que guarda en Supabase.
+
+#### [MODIFY] [supabase_service.dart](file:///E:/APP-EQUIPOS/lib/services/supabase_service.dart)
+- Métodos para filtrar equipos por estado de verificación.
+- Método para registrar una nueva verificación.
+
+### Fase 6: Detalle y Estadísticas (Mockups 8 y 9)
 
 #### [NEW] Detalle del Equipo
 - [NEW] [detalle_equipo_screen.dart](file:///E:/APP-EQUIPOS/lib/screens/equipos/detalle_equipo_screen.dart): Vista completa con foto y especificaciones.
