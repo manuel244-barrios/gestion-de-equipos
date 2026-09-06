@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../services/supabase_service.dart';
 import 'equipos/registrar_equipo_screen.dart';
 import 'verificar/verificar_equipos_screen.dart';
+import 'estadisticas/estadisticas_screen.dart';
 import 'main_container.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -62,7 +63,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 16),
-                _buildSummaryGrid(),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const EstadisticasScreen()),
+                    );
+                  },
+                  child: _buildSummaryGrid(),
+                ),
                 const SizedBox(height: 24),
                 const Text(
                   'Acciones rápidas',

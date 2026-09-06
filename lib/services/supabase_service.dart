@@ -95,4 +95,35 @@ class SupabaseService {
       'fecha_verificacion': DateTime.now().toIso8601String(),
     });
   }
+
+  Future<Map<String, dynamic>> getFullStats() async {
+    // Totales por estado
+    final stats = await getSummaryStats();
+    
+    // Conteo por categoría
+    final response = await client.from('equipos').select('categoria');
+    final List list = response as List;
+    
+    final Map<String, int> categories = {};
+    for (var item in list) {
+      final cat = item['categoria'] ?? 'Otros';
+      categories[cat] = (categories[cat] ?? 0) + 1;
+    }
+    
+    // Obtenemos cuántos están verificados (con al menos una verificación de tipo 'Verificado')
+    final responseVerificados = await client
+        .from('verificaciones')
+        .select('equipo_id', const FetchOptions(count: CountOption.exact))
+        .eq('estado_verif', 'Verificado');
+    
+    // Para evitar duplicados de equipos verificados varias veces, podríamos usar una query más compleja,
+    // pero para este MVP contaremos los registros únicos de equipo_id en verificaciones.
+    final verificadosCount = responseVerificados.count ?? 0;
+
+    return {
+      'summary': stats,
+      'categories': categories,
+      'verificados': verificadosCount,
+    };
+  }
 }

@@ -30,8 +30,13 @@ Hoy logramos transformar el proyecto de una carpeta vacía a una aplicación fun
     - Vista estética con foto en grande.
     - Desglose completo de especificaciones y observaciones.
     - Estado visual del equipo y fecha exacta de registro.
+- **Estadísticas Visuales (NUEVO)**:
+    - Gráfico circular interactivo (Pie Chart) con el resumen de estados.
+    - Desglose detallado por categorías (Informática, Oficina, etc.).
+    - Navegación integrada desde el resumen del Dashboard.
 
 ## Próximos pasos recomendados:
-- [ ] Generar los **gráficos de estadísticas** (Mockup 9).
+- [ ] Implementar el sistema de **Notificaciones** reales (Mockup 5).
+- [ ] Añadir filtros avanzados en la lista de equipos.
 
 ¡Excelente trabajo hoy! La base de la aplicación ya es muy sólida.

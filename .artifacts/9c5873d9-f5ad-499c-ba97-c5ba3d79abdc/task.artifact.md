@@ -39,4 +39,6 @@
 
 ## Fase 6: Detalle y Estadísticas (Mockups 8 y 9)
 - [x] UI: `DetalleEquipoScreen` (Mockup 8)
-- [ ] UI: `EstadisticasScreen` con `fl_chart` (Mockup 9)
+- [x] UI: `EstadisticasScreen` con `fl_chart` (Mockup 9)
+- [x] Implementar `getFullStats` en `SupabaseService`
+- [x] Conectar navegación a estadísticas desde Dashboard
